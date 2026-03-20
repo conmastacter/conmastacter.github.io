@@ -3,52 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Privacy Policies</title>
+    <title>Our Apps</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            max-width: 600px;
-            margin: 60px auto;
-            padding: 0 16px;
-            color: #333;
-            background: #f9f9f9;
+            background: #0f0f1a;
+            color: #fff;
+            min-height: 100vh;
         }
-        h1 { color: #1a1a2e; }
-        p { color: #666; }
-        ul { list-style: none; padding: 0; margin-top: 24px; }
-        li { margin-bottom: 12px; }
-        a {
-            display: inline-block;
-            color: #3b82f6;
+
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f64f59);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .app-card {
+            background: #1a1a2e;
+            border: 1px solid #2a2a4a;
+            border-radius: 16px;
+            padding: 32px 28px;
             text-decoration: none;
-            font-size: 1.05em;
+            color: inherit;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
-        a:hover { text-decoration: underline; }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            border-color: #667eea;
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .app-info h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .app-info p {
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .app-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
         .tag {
-            font-size: 0.75em;
-            background: #e8f0fe;
-            color: #3b82f6;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 8px;
-            vertical-align: middle;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .tag-android {
+            background: rgba(61, 220, 132, 0.15);
+            color: #3ddc84;
+            border: 1px solid rgba(61, 220, 132, 0.3);
+        }
+
+        .tag-free {
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .privacy-link {
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .privacy-link::after {
+            content: '→';
+            transition: transform 0.2s;
+        }
+
+        .app-card:hover .privacy-link::after {
+            transform: translateX(4px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: #444;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>Privacy Policies</h1>
-    <p>Privacy policy pages for our mobile apps.</p>
-    <ul>
-        <li>
-            <a href="chimer/privacy-policy.html">Chimer</a>
-            <span class="tag">Android</span>
-        </li>
-        <!-- Add new apps here:
-        <li>
-            <a href="appname/privacy-policy.html">App Name</a>
-            <span class="tag">Android</span>
-        </li>
+
+    <header>
+        <h1>Our Apps</h1>
+        <p>Privacy policies for our mobile applications</p>
+    </header>
+
+    <div class="apps-grid">
+
+        <a href="chimer/privacy-policy.html" class="app-card">
+            <div class="app-icon">C</div>
+            <div class="app-info">
+                <h2>Chimer</h2>
+                <p>A mobile app built to keep you in sync with what matters.</p>
+            </div>
+            <div class="app-meta">
+                <span class="tag tag-android">Android</span>
+                <span class="tag tag-free">Free</span>
+            </div>
+            <span class="privacy-link">View Privacy Policy</span>
+        </a>
+
+        <!-- Add new app cards here:
+        <a href="appname/privacy-policy.html" class="app-card">
+            <div class="app-icon">A</div>
+            <div class="app-info">
+                <h2>App Name</h2>
+                <p>Short description of the app.</p>
+            </div>
+            <div class="app-meta">
+                <span class="tag tag-android">Android</span>
+                <span class="tag tag-free">Free</span>
+            </div>
+            <span class="privacy-link">View Privacy Policy</span>
+        </a>
         -->
-    </ul>
+
+    </div>
+
+    <footer>
+        <p>Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+    </footer>
+
 </body>
 </html>
